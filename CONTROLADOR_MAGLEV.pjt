@@ -1,0 +1,147 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="C:\Users\Rodrigo\Documents\bandala\CONTROLADOR\CONTROLADOR_MAGLEV (C code)"
+ProjectType=Executable
+CPUFamily=TMS320C28XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="Linker"
+Config="1_RamDebug"
+Config="2_RamRelease"
+Config="3_FlashRelease"
+Config="4_FlashRamRelease"
+
+[Source Files]
+Source="rts2800_fpu32_fast_supplement.lib"
+Source="CONTROLADOR_MAGLEV.c"
+Source="passwords.asm"
+Source="PsBiosRomF33xFloat.lib"
+Source="PsBiosRamF33xFloat.lib"
+
+Source="F2833x_Headers_nonBIOS.cmd"
+Source="F28335_FLASH_Lnk.cmd"
+Source="F28335_FLASH_RAM_Lnk.cmd"
+Source="F28335_RAM_Lnk.cmd"
+
+["Compiler" Settings: "1_RamDebug"]
+Options=-g -k -pdr -pdsw225 -fr"RamDebug" -fs"RamDebug" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32
+
+["Compiler" Settings: "2_RamRelease"]
+Options=-k -pdsw225 -o3 -fr"RamRelease" -fs"RamRelease" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32
+
+["Compiler" Settings: "3_FlashRelease"]
+Options=-pdsw225 -o3 -fr"FlashRelease" -fs"FlashRelease" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32
+
+["Compiler" Settings: "4_FlashRamRelease"]
+Options=-pdsw225 -o3 -fr"FlashRamRelease" -fs"FlashRamRelease" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32
+
+["Linker" Settings: "1_RamDebug"]
+Options=-c -ecode_start -m"RamDebug\CONTROLADOR_MAGLEV.map" -o"RamDebug\CONTROLADOR_MAGLEV.out" -stack0x7b0 -w -x -l"rts2800_fpu32_fast_supplement.lib" -l"rts2800_fpu32.lib" -priority
+
+["Linker" Settings: "2_RamRelease"]
+Options=-c -ecode_start -m"RamRelease\CONTROLADOR_MAGLEV.map" -o"RamRelease\CONTROLADOR_MAGLEV.out" -stack0x7b0 -w -x -l"rts2800_fpu32_fast_supplement.lib" -l"rts2800_fpu32.lib"  -priority
+
+["Linker" Settings: "3_FlashRelease"]
+Options=-c -ecode_start -m"FlashRelease\CONTROLADOR_MAGLEV.map" -o"FlashRelease\CONTROLADOR_MAGLEV.out" -stack0x7b0 -w -x -l"rts2800_fpu32_fast_supplement.lib" -l"rts2800_fpu32.lib" -priority
+
+["Linker" Settings: "4_FlashRamRelease"]
+Options=-c -ecode_start -m"FlashRamRelease\CONTROLADOR_MAGLEV.map" -o"FlashRamRelease\CONTROLADOR_MAGLEV.out" -stack0x7b0 -w -x -l"rts2800_fpu32_fast_supplement.lib" -l"rts2800_fpu32.lib" -priority
+
+["PsBiosRomF33xFloat.lib" Settings: "1_RamDebug"]
+ExcludeFromBuild=true
+
+["PsBiosRomF33xFloat.lib" Settings: "2_RamRelease"]
+ExcludeFromBuild=true
+
+["PsBiosRomF33xFloat.lib" Settings: "3_FlashRelease"]
+LinkOrder=3
+
+["PsBiosRomF33xFloat.lib" Settings: "4_FlashRamRelease"]
+LinkOrder=3
+
+["PsBiosRamF33xFloat.lib" Settings: "1_RamDebug"]
+LinkOrder=3
+
+["PsBiosRamF33xFloat.lib" Settings: "2_RamRelease"]
+LinkOrder=3
+
+["PsBiosRamF33xFloat.lib" Settings: "3_FlashRelease"]
+ExcludeFromBuild=true
+
+["PsBiosRamF33xFloat.lib" Settings: "4_FlashRamRelease"]
+ExcludeFromBuild=true
+
+["rts2800_fpu32_fast_supplement.lib" Settings: "1_RamDebug"]
+LinkOrder=4
+
+["rts2800_fpu32_fast_supplement.lib" Settings: "2_RamRelease"]
+LinkOrder=4
+
+["rts2800_fpu32_fast_supplement.lib" Settings: "3_FlashRelease"]
+LinkOrder=4
+
+["rts2800_fpu32_fast_supplement.lib" Settings: "4_FlashRamRelease"]
+LinkOrder=4
+
+
+
+["passwords.asm" Settings: "1_RamDebug"]
+ExcludeFromBuild=true
+
+["passwords.asm" Settings: "2_RamRelease"]
+ExcludeFromBuild=true
+
+["passwords.asm" Settings: "3_FlashRelease"]
+LinkOrder=5
+
+["passwords.asm" Settings: "4_FlashRamRelease"]
+LinkOrder=5
+
+["F2833x_Headers_nonBIOS.cmd" Settings: "1_RamDebug"]
+LinkOrder=1
+
+["F2833x_Headers_nonBIOS.cmd" Settings: "2_RamRelease"]
+LinkOrder=1
+
+["F2833x_Headers_nonBIOS.cmd" Settings: "3_FlashRelease"]
+LinkOrder=1
+
+["F2833x_Headers_nonBIOS.cmd" Settings: "4_FlashRamRelease"]
+LinkOrder=1
+
+["F28335_FLASH_Lnk.cmd" Settings: "1_RamDebug"]
+ExcludeFromBuild=true
+
+["F28335_FLASH_Lnk.cmd" Settings: "2_RamRelease"]
+ExcludeFromBuild=true
+
+["F28335_FLASH_Lnk.cmd" Settings: "3_FlashRelease"]
+LinkOrder=2
+
+["F28335_FLASH_Lnk.cmd" Settings: "4_FlashRamRelease"]
+ExcludeFromBuild=true
+
+["F28335_FLASH_RAM_Lnk.cmd" Settings: "1_RamDebug"]
+ExcludeFromBuild=true
+
+["F28335_FLASH_RAM_Lnk.cmd" Settings: "2_RamRelease"]
+ExcludeFromBuild=true
+
+["F28335_FLASH_RAM_Lnk.cmd" Settings: "3_FlashRelease"]
+ExcludeFromBuild=true
+
+["F28335_FLASH_RAM_Lnk.cmd" Settings: "4_FlashRamRelease"]
+LinkOrder=2
+
+["F28335_RAM_Lnk.cmd" Settings: "1_RamDebug"]
+LinkOrder=2
+
+["F28335_RAM_Lnk.cmd" Settings: "2_RamRelease"]
+LinkOrder=2
+
+["F28335_RAM_Lnk.cmd" Settings: "3_FlashRelease"]
+ExcludeFromBuild=true
+
+["F28335_RAM_Lnk.cmd" Settings: "4_FlashRamRelease"]
+ExcludeFromBuild=true
